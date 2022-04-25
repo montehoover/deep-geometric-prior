@@ -1,0 +1,6 @@
+# Download data (use gdown instead of wget because it is a gdrive file over 1GB)
+conda install -c conda-forge gdown
+gdown https://drive.google.com/uc?id=17Elfc1TTRzIQJhaNu5m7SckBH_mdjYSe
+
+# Run reconstruction script on the gargoyle.ply point cloud
+python reconstruct_surface.py deep_geometric_prior_data/scans/gargoyle.ply 0.01 1.0 20 -d cuda:0 cuda:1 cuda:2 cuda:3 -nl 25 -ng 25 -o gargoyle

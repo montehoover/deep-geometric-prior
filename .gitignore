@@ -1,2 +1,5 @@
 .idea
 *.pyc
+
+deep_geometric_prior_data/
+deep_geometric_prior_data.zip*
