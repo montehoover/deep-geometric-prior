@@ -1,6 +1,15 @@
+# Setup conda
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+exec bash
+conda env create -f environment.yml
+conda activate deep-geometric-prior
+
 # Download data (use gdown instead of wget because it is a gdrive file over 1GB)
-conda install -c conda-forge gdown
+conda install -c conda-forge gdown -y
 gdown https://drive.google.com/uc?id=17Elfc1TTRzIQJhaNu5m7SckBH_mdjYSe
+sudo apt install unzip -y
+unzip deep_geometric_prior_data.zip
 
 # Run reconstruction script on the gargoyle.ply point cloud
 python reconstruct_surface.py deep_geometric_prior_data/scans/gargoyle.ply 0.01 1.0 20 -d cuda:0 cuda:1 cuda:2 cuda:3 -nl 25 -ng 25 -o gargoyle
